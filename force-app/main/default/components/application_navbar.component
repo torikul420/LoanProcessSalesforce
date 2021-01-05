@@ -1,0 +1,9 @@
+<apex:component controller="ApplicationNavbarController">
+  <apex:form >
+        <apex:pageBlock >
+            <apex:commandButton value="Application" action="{!navigateToApplication}"/>
+            <apex:commandButton value="Asset" action="{!navigateToAsset}"/>
+            <apex:commandButton value="Guarantor" action="{!navigateToGuarantor}"/>
+        </apex:pageBlock>
+    </apex:form>
+</apex:component>

@@ -1,0 +1,40 @@
+<apex:page controller="SummeryController">
+    
+    <c:application_navbar />
+
+    <apex:form > 
+        <apex:pageBlock title="Application Summery">
+            <apex:pageBlockSection columns="1">
+                <apex:outputField value="{!appSummery.Name}"/>
+                <apex:outputField value="{!appSummery.Address__c}"/>
+                <apex:outputField value="{!appSummery.App_Number__c}"/>
+                <apex:outputField value="{!appSummery.Contact__c}"/>
+                <apex:outputField value="{!appSummery.Total_Loan_Amount__c}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+
+        <apex:pageBlock title="Assets Summery">
+            <apex:pageBlockTable value="{!appSummery}" var="asset">
+                <apex:column value="{!asset.Asset__r.Name}"/>
+                <apex:column value="{!asset.Asset__r.Price__c}"/>
+                <apex:column value="{!asset.Asset__r.Condition__c}"/>
+                <apex:column value="{!asset.Asset__r.Model__c}"/>
+                <apex:column value="{!asset.Asset__r.Year__c}"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+
+        <apex:pageBlock title="Gurantors Summery">
+            <apex:pageBlockTable value="{!appSummery}" var="gurantor">
+                <apex:column value="{!gurantor.Guarantor__r.Name}"/>
+                <apex:column value="{!gurantor.Guarantor__r.Contact_Number__c}"/>
+                <apex:column value="{!gurantor.Guarantor__r.isPrimary__c}"/>
+                <apex:column value="{!gurantor.Guarantor__r.Percent_of_guranty__c}"/>
+                <apex:column value="{!gurantor.Guarantor__r.Relationship__c }"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+        
+        <apex:pageBlock >
+            <apex:commandButton action="{!validateApplication}" value="Validate"/>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

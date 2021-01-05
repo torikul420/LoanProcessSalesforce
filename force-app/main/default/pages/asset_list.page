@@ -1,0 +1,38 @@
+<apex:page controller="AssetController">
+    
+    <c:application_navbar />
+    
+    <apex:form > 
+        <apex:pageBlock title="Add Asset">
+            <apex:pageBlockSection columns="1">
+                <apex:inputField value="{!app.Name}"/>
+                <apex:inputField value="{!app.Asset__c}"/>
+                <apex:commandButton action="{!updateApplication}" value="Add & Next"/>
+             </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+    <apex:form >
+    <apex:pageBlock title="Asset List" id="asset_list">
+            <!-- Asset List -->
+        <apex:pageBlockTable value="{! assets}" var="asset">
+            <apex:column value="{! asset.Name}" />
+            <apex:column value="{! asset.Model__c}" />
+            <apex:column value="{! asset.Price__c}" />
+            <apex:column value="{! asset.Year__c}" />
+            <apex:column value="{! asset.Condition__c}" />
+            
+            <apex:column id="edit">
+                <apex:commandButton value=" Edit " onclick="window.open('/apex/asset_new?assetId={!asset.Id}')"/>
+            </apex:column>
+            
+         </apex:pageBlockTable>
+         <apex:pageBlockButtons >
+            <apex:commandButton action="{!newAsset}" value="New"/>
+            <!-- 
+            <apex:commandButton action="{!step1}" value="Previous"/>
+            <apex:commandButton action="{!step2}" value="Next"/>
+            -->
+        </apex:pageBlockButtons>
+    </apex:pageBlock>
+    </apex:form>
+</apex:page>

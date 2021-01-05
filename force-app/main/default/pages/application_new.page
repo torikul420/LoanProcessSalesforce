@@ -1,0 +1,22 @@
+<apex:page controller="ApplicationController">
+
+    <c:application_navbar />
+
+    <apex:form >
+        <apex:pageBlock title="New/Update Application">
+            <apex:pageBlockSection >
+                <apex:inputField value="{!app.Name}" />
+                <apex:inputField value="{!app.Address__c}" />
+            </apex:pageBlockSection>
+
+            <apex:pageBlockSection >
+                <apex:inputField value="{!app.Contact__c}" />
+                <apex:inputField value="{!app.Total_Loan_Amount__c}" />
+            </apex:pageBlockSection>
+
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!saveApplication}" value="Save & next" />
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

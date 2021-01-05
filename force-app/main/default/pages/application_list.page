@@ -1,0 +1,22 @@
+<apex:page controller="ApplicationController">
+    
+    <c:application_navbar />
+    
+    <apex:form >
+        <apex:pageBlock title="Application List" id="applications_list">
+            <!-- Application List -->
+            <apex:pageBlockTable value="{! applications}" var="app">
+                <apex:column value="{! app.App_Number__c}" />
+                <apex:column value="{! app.Name}" />
+                <apex:column value="{! app.Asset__c}" />
+                <apex:column value="{! app.Guarantor__c}" />
+                <apex:column value="{! app.Total_Loan_Amount__c }" />
+                <apex:column value="{! app.Contact__c}" />
+            </apex:pageBlockTable>
+            
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!newApplication}" value="New"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

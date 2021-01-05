@@ -1,0 +1,30 @@
+<apex:page controller="AssetController">
+
+    <c:application_navbar />
+
+    <apex:form >
+        <apex:pageBlock title="New/Update Asset">
+            <apex:pageBlockSection >
+                <apex:inputField value="{!asset.Name}" />
+                <apex:inputField value="{!asset.Model__c}" />
+            </apex:pageBlockSection>
+
+            <apex:pageBlockSection >
+                <apex:inputField value="{!asset.Price__c}" />
+                <apex:inputField value="{!asset.Year__c}" />
+            </apex:pageBlockSection>
+
+            <apex:pageBlockSection >
+                <apex:inputField value="{!asset.Condition__c}" />
+            </apex:pageBlockSection>
+            <apex:pageBlockSection >
+                <apex:pageblockSectionItem >
+                    <apex:commandButton action="{!saveAsset}" value="Insert / Update" />
+                </apex:pageblockSectionItem>
+                <apex:pageblocksectionItem >
+                    <apex:commandButton action="{!cancel}" value="Cancel" />
+                </apex:pageblocksectionItem>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,37 @@
+<apex:page controller="guarantorController">
+
+    <c:application_navbar />
+
+    <apex:form >
+        <apex:pageBlock title="Add Guarantor">
+            <apex:pageBlockSection columns="1">
+                <apex:inputField value="{!app.Name}" />
+                <apex:inputField value="{!app.Guarantor__c}" />
+                <apex:commandButton action="{!updateApplication}" value="Add & Next" />
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+
+    <apex:form >
+        <apex:pageBlock title="Guarantor List" id="guarantor_list">
+            <!-- Guarantor List -->
+            <apex:pageBlockTable value="{! guarantors}" var="guarantor">
+                <apex:column value="{! guarantor.Name}" />
+                <apex:column value="{! guarantor.Contact_Number__c}" />
+                <apex:column value="{! guarantor.isPrimary__c}" />
+                <apex:column value="{! guarantor.Percent_of_guranty__c}" />
+                <apex:column value="{! guarantor.Relationship__c}" />
+                <apex:column id="edit">
+                    <apex:commandButton value=" Edit " onclick="window.open('/apex/guarantor_new?guarantorId={!guarantor.Id}')" />
+                </apex:column>
+            </apex:pageBlockTable>
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!newGuarantor}" value="New" />
+                <!-- 
+            <apex:commandButton action="{!step2}" value="Previous"/>
+            <apex:commandButton action="{!step3}" value="Next"/>
+            -->
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
